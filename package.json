@@ -1,0 +1,26 @@
+{
+  "name": "koa_project",
+  "version": "1.0.0",
+  "description": "a koa project with vue and mysql",
+  "main": "app.js",
+  "scripts": {
+    "start": "supervisor app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "vue",
+    "mysql"
+  ],
+  "author": "zzxprint",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^8.0.8",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}

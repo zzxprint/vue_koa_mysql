@@ -1,8 +1,8 @@
 const router = require('koa-router')()
 
-router.get('/get/:name', async ctx => {
-  let name = ctx.params.name
-  let sql = `SELECT * FROM commodity WHERE name LIKE '%${name}%'`
+// 获取所有商品
+router.get('/getAll', async ctx => {
+  let sql = `SELECT * FROM commodity`
   try {
     let data = await ctx.$utils.query(sql)
     ctx.body = ctx.$utils.resbody(data)

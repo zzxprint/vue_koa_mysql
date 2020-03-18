@@ -3,7 +3,7 @@ import router from './index'
 
 // axios配置
 axios.defaults.timeout = 8000
-axios.defaults.baseURL = 'http://192.168.200.13:3000/api'
+axios.defaults.baseURL = '/api'
 
 // request拦截器
 axios.interceptors.request.use(
@@ -21,7 +21,7 @@ axios.interceptors.request.use(
 // response拦截器
 axios.interceptors.response.use(
     response => {
-        return response
+        return response.data
     },
     error => {
         if(error.response) {

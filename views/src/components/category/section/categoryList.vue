@@ -4,7 +4,7 @@
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
                 <div class="img-box" @click="photoView('/api/' + item.commodityImg)">
-                    <img v-lazy="'/api/' + item.commodityImg" alt="">
+                    <img v-lazy="item.commodityImg" alt="">
                 </div>
                 <div class="info-box">
                     <div class="info-title"><span>{{item.commodityName}}</span></div>
@@ -55,10 +55,9 @@ export default {
         getCommodityList(categoryId) {
             // 先清空数组
             this.commodity = []
-            let submitForm = {categoryId: categoryId}
             // 请求商品信息
-            this.$axios.post('/commodity/getCommodity',submitForm).then(res => {
-                this.commodity = res.data.commodityList
+            this.$axios.get('/commodity/getCommodityById/' + categoryId).then(res => {
+                this.commodity = res.data
             }).catch(err => {
                 console.log(err)
             })

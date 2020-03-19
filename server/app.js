@@ -1,6 +1,8 @@
 const Koa = require('koa')
 const app = new Koa()
 const router = require('./routes') // 引入所有的路由
+const path = require('path') // 引入node的path模块
+const static = require('koa-static') // 静态资源中间件
 
 // 第一个中间件,注册方法到util中,可以全局使用
 app.use(async (ctx, next) => {
@@ -10,7 +12,9 @@ app.use(async (ctx, next) => {
   }
   await next()
 })
-// 路由中间件
-app.use(router.routes(), router.allowedMethods())
+
+
+app.use(static(path.join( __dirname, './static'))) // 静态资源中间件
+app.use(router.routes(), router.allowedMethods()) // 路由中间件
 
 app.listen(3000)

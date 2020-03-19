@@ -6,5 +6,6 @@ router.get('/', async ctx => { ctx.body = 'welcome' })
 // 访问其他子路由进行拆分访问
 router.use('/user', require('./user'))
 router.use('/commodity', require('./commodity'))
+router.use('/category', require('./category'))
 
 module.exports = router

@@ -10,7 +10,7 @@
                     </div>
                     <!-- 商品图片 -->
                     <div class="img-box">
-                        <img :src="'/api/' + item.commodityImg" alt="">
+                        <img :src="item.commodityImg" alt="">
                     </div>
                     <!-- 商品信息 -->
                     <div class="info-box">

@@ -7,7 +7,7 @@
         <!-- 图标列表 -->
         <shop-icon></shop-icon>
         <!-- 打折专区 -->
-        <!-- <shop-discount></shop-discount> -->
+        <shop-discount></shop-discount>
         <!-- 部分商品预览 -->
         <!-- <shop-list></shop-list> -->
     </div>
@@ -26,12 +26,6 @@ export default {
         'shop-icon': shopIcon,
         'shop-discount': shopDiscount,
         'shop-list': shopList
-    },
-    created() {
-        this.$axios.get('/commodity/getAll')
-        .then(res => {
-            console.log(res)
-        })
     }
 }
 </script>

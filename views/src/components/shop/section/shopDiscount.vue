@@ -6,7 +6,7 @@
             <swiper-slide v-for="item in this.commodityList" :key="item.id">
                 <!-- 商品图片 -->
                 <div class="commodity-image">
-                    <img :src="'/api/' + item.commodityImg">
+                    <img :src="item.commodityImg">
                 </div>
                 <div class="commodity-content">
                     <!-- 商品标题 -->
@@ -55,8 +55,8 @@ export default {
     methods: {
         // 获取打折商品信息
         getDiscountCommodity() {
-            this.$axios.post('/commodity/getDiscountCommodity').then(res => {
-                this.commodityList = res.data.commodityList
+            this.$axios.get('/commodity/getDiscountCommodity').then(res => {
+                this.commodityList = res.data
             }).catch(err => {
                 console.log(err)
             })

@@ -62,18 +62,20 @@ export default {
             if(!this.canSubmit){
                 return
             }
-            this.$axios.post('/login/login',this.form).then(res => {
-                if(res.data.success){
-                    sessionStorage.setItem('token', res.data.token)
-                    // 如果有下一步的路径
-                    if(this.$route.params.nextPath){
-                        this.$store.commit('SET_USERINFO', res.data.userInfo)
-                        this.$router.replace(this.$route.params.nextPath)
-                    }else{
-                        this.$router.replace('/')
-                    }
+            this.$axios.post('/login/login', this.form).then(res => {
+                console.log(res)
+                if(res.success){
+                    this.$toast('登录成功')
+                    // sessionStorage.setItem('token', res.data.token)
+                    // // 如果有下一步的路径
+                    // if(this.$route.params.nextPath){
+                    //     this.$store.commit('SET_USERINFO', res.data.userInfo)
+                    //     this.$router.replace(this.$route.params.nextPath)
+                    // }else{
+                    //     this.$router.replace('/')
+                    // }
                 }else{
-                    this.$toast(res.data.msg)
+                    this.$toast(res.msg)
                 }
             }).catch(err => {
                 console.log(err)

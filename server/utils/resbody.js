@@ -1,9 +1,9 @@
-let resBody = (data, success, code, msg) => {
+let resBody = (data, success, msg, code) => {
   return {
-    data: data || '',
-    success: success || true,
-    code: code || 00,
-    msg: msg || ''
+    data: data ? data : '',
+    success: (success === undefined || success === true) ? true : false,
+    msg: msg ? msg : '',
+    code: code ? code : 00
   }
 }
 

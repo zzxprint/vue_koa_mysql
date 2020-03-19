@@ -63,17 +63,16 @@ export default {
                 return
             }
             this.$axios.post('/login/login', this.form).then(res => {
-                console.log(res)
                 if(res.success){
                     this.$toast('登录成功')
-                    // sessionStorage.setItem('token', res.data.token)
-                    // // 如果有下一步的路径
-                    // if(this.$route.params.nextPath){
-                    //     this.$store.commit('SET_USERINFO', res.data.userInfo)
-                    //     this.$router.replace(this.$route.params.nextPath)
-                    // }else{
-                    //     this.$router.replace('/')
-                    // }
+                    sessionStorage.setItem('token', res.data.token)
+                    // 如果有下一步的路径
+                    if(this.$route.params.nextPath){
+                        this.$store.commit('SET_USERINFO', res.data.userInfo)
+                        this.$router.replace(this.$route.params.nextPath)
+                    }else{
+                        this.$router.replace('/')
+                    }
                 }else{
                     this.$toast(res.msg)
                 }

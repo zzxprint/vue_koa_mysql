@@ -11,9 +11,10 @@ router.get('/getDiscountCommodity', async ctx => {
   }
 })
 
-// 获取所有商品
-router.get('/getAll', async ctx => {
-  let sql = `select * from commodity`
+// 随机获得n件商品
+router.post('/getRandomCommodity', async ctx => {
+  let limit = ctx.request.body.size
+  let sql = `select * from commodity order by rand() limit ${limit}`
   try {
     let data = await ctx.$utils.query(sql)
     ctx.body = ctx.$utils.resbody(data)

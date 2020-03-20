@@ -9,7 +9,7 @@
         <!-- 打折专区 -->
         <shop-discount></shop-discount>
         <!-- 部分商品预览 -->
-        <!-- <shop-list></shop-list> -->
+        <shop-list></shop-list>
     </div>
 </template>
 

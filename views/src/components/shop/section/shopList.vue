@@ -4,7 +4,7 @@
         <ul class="list-content">
             <li class="commodity-box" v-for="item in commodityList" :key="item.id">
                 <!-- 商品图片 -->
-                <img class="commodity-image" v-lazy="'/api/' + item.commodityImg">
+                <img class="commodity-image" v-lazy="item.commodityImg">
                 <div class="commodity-content">
                     <!-- 商品标题 -->
                     <div class="content-title">{{item.commodityName}}</div>
@@ -42,8 +42,8 @@ export default {
     methods: {
         // 获取随机N条商品信息
         getRandomCommodity() {
-            this.$axios.post('/commodity/getRandomCommodity', {size: 8}).then(res => {
-                this.commodityList = res.data.commodityList
+            this.$axios.post('/commodity/getRandomCommodity', {size: 10}).then(res => {
+                this.commodityList = res.data
             }).catch(err => {
                 console.log(err)
             })

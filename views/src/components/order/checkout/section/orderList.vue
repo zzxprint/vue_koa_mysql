@@ -22,7 +22,7 @@
         <!-- 多件商品 -->
         <div class="order-multiple" v-if="cartList.length > 1">
             <div class="order-images">
-                <img v-for="item in cartList" :key="item.id" :src="'/api/' + item.commodityImg">
+                <img v-for="item in cartList" :key="item.id" :src="item.commodityImg">
             </div>
             <div class="more-btn">
                 <span>共{{cartTotalCount}}件</span><van-icon name="arrow" />

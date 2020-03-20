@@ -82,7 +82,7 @@ router.beforeEach((to, from, next) => {
     }
     next();
   }else {
-    // 如果没有登录，则跳转登录页面并记录本来药跳转的路径
+    // 如果没有登录，则跳转登录页面并记录本来要跳转的路径
     if(token === null || token === ''){
       next({
         name: 'login',

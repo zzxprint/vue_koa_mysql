@@ -17,7 +17,7 @@ router.post('/login', async ctx => {
           username: ctx.request.body.username
         }
         let token = jwt.sign(payload, 'zzxprintSecretKey', {
-          expiresIn: 60 * 60 * 24 // 授权24小时
+          expiresIn: 12 * 60 * 60 // 授权12小时
         })
         // 返回信息
         let userInfo = sqlData[0]

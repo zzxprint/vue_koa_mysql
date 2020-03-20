@@ -1,8 +1,9 @@
 const router = require('koa-router')()
 
-router.get('/get', async ctx => {
+router.post('/getUserInfo', async ctx => {
+  let userId = ctx.request.body.userId
   try {
-    let sql = 'SELECT * FROM USER'
+    let sql = `select * from user where userId = '${userId}'`
     let data = await ctx.$utils.query(sql)
     ctx.body = ctx.$utils.resbody(data)
   } catch (err) {

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import router from './index'
+import { Toast } from 'vant'
 
 // axios配置
 axios.defaults.timeout = 8000
@@ -29,6 +30,7 @@ axios.interceptors.response.use(
                 case 401:
                     // 清除token，并跳转到登陆页面
                     sessionStorage.removeItem('token')
+                    Toast('会话已过期，请重新登录')
                     router.replace({
                         name: 'login',
                         params: {nextPath: router.currentRoute.fullPath}

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/components/index'
 import login from '@/components/login/login'
 import shop from '@/components/shop/shop'
+import search from '@/components/search/search'
 import category from '@/components/category/category'
 import cart from '@/components/cart/cart'
 import mine from '@/components/mine/mine'
@@ -15,7 +16,7 @@ Vue.use(Router)
 const router =  new Router({
   mode: 'history',
   routes: [
-    // 不需要登录的页面
+    // 有导航栏的页面
     {
       path: '/',
       component: index,
@@ -39,17 +40,22 @@ const router =  new Router({
           path: '/mine',
           name: 'mine',
           component: mine,
-          meta: {requireAuth: true}, //需要登录
+          meta: {requireAuth: true}, // 需要登录
         }
       ]
     },
+    // 没有导航栏的页面
     // 登录页面
     {
       path: '/login',
       name: 'login',
       component: login
     },
-    // 需要登录的页面
+    {
+      path: '/search',
+      name: '/search',
+      component: search
+    },
     {
       path: '/order',
       name: 'order',
@@ -60,7 +66,7 @@ const router =  new Router({
           path: 'checkout',
           name: 'checkout',
           component: checkout,
-          meta: {requireAuth: true}, //需要登录
+          meta: {requireAuth: true}, // 需要登录
         }
       ]
     },

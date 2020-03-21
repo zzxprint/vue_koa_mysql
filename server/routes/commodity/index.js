@@ -35,4 +35,16 @@ router.get('/getCommodityById/:id', async ctx => {
   }
 })
 
+// 搜索商品
+router.post('/searchCommodity', async ctx => {
+  let name = ctx.request.body.name
+  let sql = `select * from commodity where commodityName like '%${name}%'`
+  try {
+    let data = await ctx.$utils.query(sql)
+    ctx.body = ctx.$utils.resbody(data)
+  } catch (err) {
+    ctx.body = ctx.$utils.resbody(err, false)
+  }
+})
+
 module.exports = router.routes()

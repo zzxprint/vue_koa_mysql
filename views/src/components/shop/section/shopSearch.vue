@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-search">
+    <div class="shop-search" @click="search">
         <van-icon name="search" />
         <span>输入商品名称</span>
     </div>
@@ -8,7 +8,11 @@
 <script>
 
 export default {
-    
+    methods: {
+        search () {
+            this.$router.push('/search')
+        }
+    }
 }
 </script>
 

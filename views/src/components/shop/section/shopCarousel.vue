@@ -1,9 +1,9 @@
 <template>
     <div class="shop-carousel">
         <van-swipe :autoplay="3000" indicator-color="white">
-            <van-swipe-item><img src="../../../assets/carousel/carousel_1.jpg"/></van-swipe-item>
-            <van-swipe-item><img src="../../../assets/carousel/carousel_2.jpg"/></van-swipe-item>
-            <van-swipe-item><img src="../../../assets/carousel/carousel_3.jpg"/></van-swipe-item>
+            <van-swipe-item v-for="(item, index) in imgArr" :key="index">
+                <img :src="item.url"/>
+            </van-swipe-item>
         </van-swipe>
     </div>
 </template>
@@ -12,6 +12,11 @@
 export default {
     data() {
         return {
+            imgArr: [
+                {url: require('../../../assets/carousel/carousel_1.png')},
+                {url: require('../../../assets/carousel/carousel_2.jpg')},
+                {url: require('../../../assets/carousel/carousel_3.jpg')}
+            ]
         }
     }
 }
@@ -26,7 +31,7 @@ export default {
         .van-swipe-item{
             line-height: 420px;
             text-align: center;
-            background: #00AAEE;
+            background: #FFF;
             color: #FFF;
             img{
                 height: 100%;
